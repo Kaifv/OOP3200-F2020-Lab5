@@ -1,8 +1,15 @@
+/*Author: Kaifkhan Vakil
+ *Author: Michai Pryce
+ *Date: 25th October 2020
+ *Description: In this lab we will be using the map and file handling to read from the file and insert it into the map. After inserting all the values from the file we will calculate the number of points
+ *in the map and distance between all the points. After that we will be getting the user Input to display the distance between starting point and the point user entered.
+ */
 #include <fstream>
 #include <iomanip>
 #include <iostream>
 #include <map>
 #include <cstdlib>
+#include <stdexcept>
 
 
 #include "Vector2D.h"
@@ -100,7 +107,7 @@ int main()
 					total += distance1;
 				}
 
-				std::cout << "Map has " << std::to_string(pointDistance.size()) <<
+				std::cout << "\nMap has " << std::to_string(pointDistance.size()) <<
 					" key - value pair. And total distance between all the points is " << std::to_string(total);
 
 
@@ -137,12 +144,12 @@ int main()
 			}
 			else
 			{
-				std::cout << "The map is empty. Check that the file contains valid data in the correct format.";
+				std::cout << "\nThe map is empty. Check that the file contains valid data in the correct format.";
 			}
 		}
 		else
 		{
-			std::cout << "PointsData.dat could not be opened for input. Check that the file exists.";
+			std::cout << "\nPointsData.dat could not be opened for input. Check that the file exists.";
 		}
 	}
 	/******************************************************************************
@@ -152,7 +159,7 @@ int main()
 	 ******************************************************************************/
 	catch(const std::exception& ex)  // an exception was thrown
 	{
-		std::cerr << "\An Error occurred at run time" << ex.what() << std::endl;
+		std::cerr << "\n An Error occurred at run time" << ex.what() << std::endl;
 	}
 
 	// END-OF-PROGRAM
