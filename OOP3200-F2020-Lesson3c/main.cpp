@@ -23,6 +23,7 @@ int main()
 		/************************
 		 *	DECLARATIONS
 		 ************************/
+		//Map
 		std::map < std::string, Vector2D<float>*> pointDistance;
 
 
@@ -88,21 +89,21 @@ int main()
 			 *	to the user how many points the map contains and what the total distance is.
 			 ******************************************************************************/
 
-			if (pointDistance.size() > 0)
+			if (!pointDistance.empty())
 			{
 
 
 				//Creating an iterator
 				auto iter = pointDistance.begin();
-				auto* tempVector = iter->second;
+				auto* map_iteration = iter->second;
 
 				double total = 0;
-				for (auto& vector : pointDistance)
+				for (auto& point : pointDistance)
 				{
 
-					auto distance1 = Vector2D<float>::Distance(*tempVector, *vector.second);
+					auto distance1 = Vector2D<float>::Distance(*map_iteration, *point.second);
 
-					tempVector = vector.second;
+					map_iteration = point.second;
 
 					total += distance1;
 				}
