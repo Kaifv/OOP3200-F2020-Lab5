@@ -32,7 +32,7 @@ int main()
 		 *	map is not empty.
 		 ******************************************************************************/
 		std::ifstream inFile;
-		std::string fileName = "MockDataForTesting.txt";
+		std::string fileName = "PointData.dat";
 
 		inFile.open(fileName.c_str());
 
@@ -87,21 +87,37 @@ int main()
 		 ******************************************************************************/
 
 		//Creating an iterator
-		auto iter = pointDistance.begin();
+		 auto iter = pointDistance.begin();
+		auto* tempVector = iter->second;
+		 
+		double total = 0;
+		for(auto& vector : pointDistance)
+		{
+			
+			auto distance1 = Vector2D<int>::Distance(*tempVector, *vector.second);
 
-		int total;
+			tempVector = vector.second;
+
+			 total += distance1;
+		}
+
+		std::cout << "Map has " << std::to_string(pointDistance.size()) << " key - value pair. And total distance between all the points is " << std::to_string(total);
+
+	/*	int total= 0;
 
 		while(iter != pointDistance.end())
 		{
-			//auto distance1 = Vector2D<int>::Distance(pointDistance.at(iter->second->ToString()),pointDistance.at(iter->second->ToString() + 1) );
+			auto* tempVector = pointDistance["AB"];
+			vector
+			auto distance1 = Vector2D<int>::Distance(*tempVector);
 
-			//auto total =+ distance1;
+			auto total =+ distance1;
 			
 			++iter;
-		}
+		}*/
 		
 		
-		std::cout << "Map has " << std::to_string(pointDistance.size()) << " key - values pair. And total distance between all the points is " << std::to_string(total);
+		
 		
 				
 
